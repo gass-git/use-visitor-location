@@ -23,6 +23,8 @@
   "type": "module",
   "main": "index.js",
   "devDependencies": {
+    "@types/react": "^19.2.2",
+    "axios": "^1.13.1",
     "rollup": "^4.52.5",
     "typescript": "^5.9.3"
   },

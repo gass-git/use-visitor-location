@@ -1,0 +1,32 @@
+{
+  "name": "use-visitor-location",
+  "version": "1.0.0",
+  "description": "React hook that returns the geographic location of visitors",
+  "keywords": [
+    "react",
+    "react-hook",
+    "geolocation",
+    "location",
+    "geoip",
+    "ip-geolocation",
+    "user-location",
+    "visitor-location",
+    "localization",
+    "frontend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gass-git/use-visitor-location"
+  },
+  "license": "ISC",
+  "author": "gass-git",
+  "type": "module",
+  "main": "index.js",
+  "devDependencies": {
+    "rollup": "^4.52.5",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0"
+  }
+}

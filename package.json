@@ -21,7 +21,7 @@
   "license": "ISC",
   "author": "gass-git",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
     "build": "tsc --emitDeclarationOnly --outDir dist/ && rollup -c --bundleConfigAsCjs && rimraf dist/hook.d.ts"

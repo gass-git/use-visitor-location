@@ -66,14 +66,13 @@ export default function useVisitorLocation(): Nullable<Location> {
     org: null,
   })
 
-  // on-mount fetch
   useEffect(() => {
-    (async function fetch(){
-      const resp = await axios.get("https://ipapi.co/json")
-
+    axios.get("https://ipapi.co/json").then(resp => {
       setData(resp.data)
-    })();
-  }, []) // the hook has no dependencies
+    }).catch(err => {
+      console.log(err)
+    })
+  }, [])
 
   return data
 }

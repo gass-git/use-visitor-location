@@ -1,6 +1,6 @@
 {
   "name": "use-visitor-location",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React hook that returns the geographic location of visitors and much more.",
   "keywords": [
     "react",

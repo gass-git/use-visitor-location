@@ -46,7 +46,8 @@ const {
 | `in_eu` | `boolean` | Whether the visitor is in the European Union |
 
 
-# Basic Example
+
+## Basic Example
 
 ```javascript
 import useVisitorLocation from "use-visitor-location"

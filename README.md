@@ -1,3 +1,8 @@
+## Description
+
+Lightweight React hook that fetches geolocation data using `ipapi.co` free API service. It sends a single request and returns structured location information about the visitor.
+
+
 ## Install with NPM
 
 ```
@@ -16,3 +21,4 @@ const {
   continent_code 
 } = useVisitorLocation()
 ```
+

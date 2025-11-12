@@ -44,3 +44,20 @@ const {
 | `asn` | `string` | Autonomous system number |
 | `org` | `string` | Internet service provider |
 | `in_eu` | `boolean` | Whether the visitor is in the European Union |
+
+
+# Basic Example
+
+```javascript
+import useVisitorLocation from "use-visitor-location"
+
+export default function MyComponent(){
+  const { city } = useVisitorLocation()
+
+  return (
+    <h1 style={{display: city ? `block` : `none` }}>
+      {`How are things in ${city} ?`}
+    </h1>
+  )
+}
+```

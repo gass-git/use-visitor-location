@@ -22,6 +22,22 @@ const {
 } = useVisitorLocation()
 ```
 
+## Basic Example
+
+```javascript
+import useVisitorLocation from "use-visitor-location"
+
+export default function MyComponent(){
+  const { city } = useVisitorLocation()
+
+  return (
+    <h1 style={{display: city ? `block` : `none` }}>
+      {`How are things in ${city} ?`}
+    </h1>
+  )
+}
+```
+
 ## Returned Values
 
 | Key | Type | Description |
@@ -47,18 +63,3 @@ const {
 
 
 
-## Basic Example
-
-```javascript
-import useVisitorLocation from "use-visitor-location"
-
-export default function MyComponent(){
-  const { city } = useVisitorLocation()
-
-  return (
-    <h1 style={{display: city ? `block` : `none` }}>
-      {`How are things in ${city} ?`}
-    </h1>
-  )
-}
-```

@@ -1,7 +1,7 @@
 # 🗺️ use-visitor-location
 [![Downloads](https://img.shields.io/npm/dm/use-visitor-location.svg?style=flat-square)](https://www.npmjs.com/package/use-visitor-location)
 [![version](https://img.shields.io/npm/v/use-visitor-location.svg?style=flat-square)](https://www.npmjs.com/package/use-visitor-location)
-[![MIT License](https://img.shields.io/npm/l/use-visitor-location.svg?style=flat-square)](https://github.com/alvinometric/use-visitor-location/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/npm/l/use-visitor-location.svg?style=flat-square)](https://github.com/gass-git/use-visitor-location/blob/main/LICENSE)
 
 Lightweight React hook that fetches geolocation data using `ipapi.co` free API service. It sends a single request and returns structured location information about the visitor.
 

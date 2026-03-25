@@ -21,8 +21,13 @@
   "license": "MIT",
   "author": "gass-git",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsc --emitDeclarationOnly --outDir dist/ && rollup -c --bundleConfigAsCjs && rimraf dist/hook.d.ts"
   },

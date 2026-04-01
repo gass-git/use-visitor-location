@@ -5,7 +5,7 @@
 
 Lightweight React hook that fetches geolocation data using `ipapi.co` free API service. It sends a single request and returns structured location information about the visitor.
 
-⚠️ Note: the free version has a limited number of requests. [Visit the website](https://ipapi.co) for more info.
+⚠️ The free version has a limited number of requests. [Visit the website](https://ipapi.co) for more info.
 
 - [use-visitor-location](#use-visitor-location)
   - [Installation](#installation)

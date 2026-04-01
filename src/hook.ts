@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
-import type { Nullable, Location } from "./types.ts";
+import { useState, useEffect, type ReactNode } from "react";
 import axios from "axios";
 
 const API_BASE_URL = "https://ipapi.co/";
 
-export default function useVisitorLocation(
-  specificField?: string | undefined,
-): Nullable<Location> | number | boolean | string | null {
+export default function useVisitorLocation(specificField?: string | undefined) {
   const [data, setData] = useState({
     ip: null,
     network: null,

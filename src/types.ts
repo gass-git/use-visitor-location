@@ -2,7 +2,11 @@ type Nullable<T> = {
   [K in keyof T]: T[K] | null;
 };
 
-interface Location {
+type Options = {
+  fetch_only: keyof LocationData;
+};
+
+interface LocationData {
   ip: string;
   network: string;
   version: string;
@@ -32,4 +36,4 @@ interface Location {
   org: string;
 }
 
-export type { Nullable, Location };
+export type { Nullable, LocationData, Options };

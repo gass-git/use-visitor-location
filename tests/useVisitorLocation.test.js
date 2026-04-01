@@ -56,9 +56,9 @@ it("fetches and returns a single specific field", async () => {
     data: mockResp.country_population,
   });
 
-  const { result } = renderHook(() => useVisitorLocation("country_population"));
+  const { result } = renderHook(() => useVisitorLocation({fetch_only: "country_population"}));
 
   await waitFor(() => {
-    expect(result.current).toEqual(mockResp.country_population);
+    expect(result.current.country_population).toEqual(mockResp.country_population);
   });
 });

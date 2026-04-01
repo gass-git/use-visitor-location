@@ -26,7 +26,9 @@ Request and fetch only one specific field:
 ```javascript
 import useVisitorLocation from "use-visitor-location";
 
-const countryPopulation = useVisitorLocation("country_population");
+const { country_population } = useVisitorLocation({
+  fetch_only: "country_population",
+});
 ```
 
 ## Basic Example

@@ -1,49 +1,24 @@
 import { useState, useEffect, type ReactNode } from "react";
 import axios from "axios";
+import type { LocationData, Nullable, Options } from "./types.js";
+import { config } from "./config.js";
 
-const API_BASE_URL = "https://ipapi.co/";
-
-export default function useVisitorLocation(specificField?: string | undefined) {
-  const [data, setData] = useState({
-    ip: null,
-    network: null,
-    version: null,
-    city: null,
-    region: null,
-    region_code: null,
-    country: null,
-    country_name: null,
-    country_code: null,
-    country_code_iso3: null,
-    country_capital: null,
-    country_tld: null,
-    continent_code: null,
-    in_eu: null,
-    postal: null,
-    latitude: null,
-    longitude: null,
-    timezone: null,
-    utc_offset: null,
-    country_calling_code: null,
-    currency: null,
-    currency_name: null,
-    languages: null,
-    country_area: null,
-    country_population: null,
-    asn: null,
-    org: null,
-  });
-
-  const [text, setText] = useState("");
+export default function useVisitorLocation(
+  options?: Options,
+): Nullable<LocationData> {
+  const [data, setData] = useState<Nullable<LocationData>>(config.initData);
 
   useEffect(() => {
-    const endpoint = new URL(specificField ?? "json", API_BASE_URL).toString();
+    const endpoint = new URL(
+      options?.fetch_only ?? "json",
+      config.API_BASE_URL,
+    ).toString();
 
     axios
       .get(endpoint)
       .then((resp) => {
-        if (specificField !== undefined) {
-          setText(resp.data);
+        if (options?.fetch_only !== undefined) {
+          setData((prev) => ({ ...prev, [options.fetch_only]: resp.data }));
         } else {
           setData(resp.data);
         }
@@ -51,11 +26,7 @@ export default function useVisitorLocation(specificField?: string | undefined) {
       .catch((err) => {
         console.error(err);
       });
-  }, [specificField]);
+  }, [options?.fetch_only]);
 
-  if (specificField !== undefined) {
-    return text;
-  } else {
-    return data;
-  }
+  return data;
 }

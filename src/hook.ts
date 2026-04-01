@@ -6,7 +6,7 @@ const API_BASE_URL = "https://ipapi.co/";
 
 export default function useVisitorLocation(
   specificField?: string | undefined,
-): Nullable<Location> {
+): Nullable<Location> | number | boolean | string | null {
   const [data, setData] = useState({
     ip: null,
     network: null,

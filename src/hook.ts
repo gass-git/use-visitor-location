@@ -1,39 +1,8 @@
-import {useState, useEffect} from "react"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import type { Nullable, Location } from "./types.ts";
+import axios from "axios";
 
-type Nullable<T> = {
-  [K in keyof T]: T[K] | null;
-};
-
-interface Location {
-  ip: string;
-  network: string;
-  version: string;
-  city: string;
-  region: string;
-  region_code: string;
-  country: string;
-  country_name: string;
-  country_code: string;
-  country_code_iso3: string;
-  country_capital: string;
-  country_tld: string;
-  continent_code: string;
-  in_eu: boolean;
-  postal: string;
-  latitude: number;
-  longitude: number;
-  timezone: string;
-  utc_offset: string;
-  country_calling_code: string;
-  currency: string;
-  currency_name: string;
-  languages: string;
-  country_area: number;
-  country_population: number;
-  asn: string;
-  org: string;
-}
+const endpoint = "https://ipapi.co/json";
 
 export default function useVisitorLocation(): Nullable<Location> {
   const [data, setData] = useState({
@@ -64,16 +33,18 @@ export default function useVisitorLocation(): Nullable<Location> {
     country_population: null,
     asn: null,
     org: null,
-  })
+  });
 
   useEffect(() => {
-    axios.get("https://ipapi.co/json").then(resp => {
-      setData(resp.data)
-    }).catch(err => {
-      console.log(err)
-    })
-  }, [])
+    axios
+      .get(endpoint)
+      .then((resp) => {
+        setData(resp.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
-  return data
+  return data;
 }
-

@@ -37,18 +37,28 @@ export default function useVisitorLocation(
     org: null,
   });
 
+  const [text, setText] = useState("");
+
   useEffect(() => {
     const endpoint = new URL(specificField ?? "json", API_BASE_URL).toString();
 
     axios
       .get(endpoint)
       .then((resp) => {
-        setData(resp.data);
+        if (specificField !== undefined) {
+          setText(resp.data);
+        } else {
+          setData(resp.data);
+        }
       })
       .catch((err) => {
         console.error(err);
       });
   }, [specificField]);
 
-  return data;
+  if (specificField !== undefined) {
+    return text;
+  } else {
+    return data;
+  }
 }

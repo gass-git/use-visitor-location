@@ -5,7 +5,14 @@
 
 Lightweight React hook that fetches geolocation data using `ipapi.co` free API service. It sends a single request and returns structured location information about the visitor.
 
-## Install with NPM
+- [use-visitor-location](#use-visitor-location)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Basic Example](#basic-example)
+  - [Options](#options)
+  - [Returned Values](#returned-values)
+
+## Installation
 
 ```
 npm i use-visitor-location
@@ -37,7 +44,7 @@ const { country_population } = useVisitorLocation({
 import useVisitorLocation from "use-visitor-location";
 
 export default function MyComponent() {
-  const { city } = useVisitorLocation();
+  const { city } = useVisitorLocation({ fetch_only: "city" });
 
   return (
     <h1 style={{ display: city ? `block` : `none` }}>
@@ -46,6 +53,12 @@ export default function MyComponent() {
   );
 }
 ```
+
+## Options
+
+| Option     | Type     | Defualt     | Description                                                                                                                                                         |
+| ---------- | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fetch_only | `string` | `undefined` | Fetch only one specific field instead of the full response. This option only accepts keys that exist in the returned location data. TS will prevent invalid values. |
 
 ## Returned Values
 

@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import type { Nullable, Location } from "./types.ts";
 import axios from "axios";
 
-const base = "https://ipapi.co/";
+const API_BASE_URL = "https://ipapi.co/";
 
 export default function useVisitorLocation(
-  specificField: string | undefined = undefined,
+  specificField?: string | undefined,
 ): Nullable<Location> {
-  const endpoint = specificField ? base + specificField : base + "json";
-
   const [data, setData] = useState({
     ip: null,
     network: null,
@@ -40,6 +38,8 @@ export default function useVisitorLocation(
   });
 
   useEffect(() => {
+    const endpoint = new URL(specificField ?? "json", API_BASE_URL).toString();
+
     axios
       .get(endpoint)
       .then((resp) => {
@@ -48,7 +48,7 @@ export default function useVisitorLocation(
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [specificField]);
 
   return data;
 }

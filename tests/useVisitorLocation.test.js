@@ -36,7 +36,7 @@ const mockResp = {
 
 beforeEach(() => {
   vi.mocked(fetch).mockResolvedValue({
-    json: async () => mockUser,
+    json: async () => mockResp,
   });
 });
 

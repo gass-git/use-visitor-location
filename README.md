@@ -16,7 +16,11 @@ npm i use-visitor-location
 ```typescript
 import useVisitorLocation from "use-visitor-location";
 
+// Fetch all available location data and destructure the fields you need
 const { country_name, city, in_eu, continent_code } = useVisitorLocation();
+
+// Request and fetch only one specific field
+const countryPopulation = useVisitorLocation("country_population");
 ```
 
 ## Basic Example

@@ -1,8 +1,9 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import useVisitorLocation from "../src/hook.js";
 import { vi, beforeEach, it, expect } from "vitest";
+import axios from "axios";
 
-global.fetch = vi.fn();
+vi.mock("axios");
 
 const mockResp = {
   ip: "2a02:ab88:3703:a000:e9d0:924d:e9:5b5c",
@@ -35,12 +36,14 @@ const mockResp = {
 };
 
 beforeEach(() => {
-  vi.mocked(fetch).mockResolvedValue({
-    json: async () => mockResp,
-  });
+  vi.clearAllMocks();
 });
 
 it("fetches and returns all expected data", async () => {
+  axios.get.mockResolvedValue({
+    data: mockResp,
+  });
+
   const { result } = renderHook(() => useVisitorLocation());
 
   await waitFor(() => {
@@ -49,9 +52,13 @@ it("fetches and returns all expected data", async () => {
 });
 
 it("fetches and returns a single specific field", async () => {
+  axios.get.mockResolvedValue({
+    data: mockResp.country_population,
+  });
+
   const { result } = renderHook(() => useVisitorLocation("country_population"));
 
   await waitFor(() => {
-    expect(result.current).toEqual(mockResp["country_population"]);
+    expect(result.current).toEqual(mockResp.country_population);
   });
 });

@@ -4,3 +4,5 @@ tsconfig.json
 package-lock.json
 src/
 .github
+vite.config.ts
+tests/

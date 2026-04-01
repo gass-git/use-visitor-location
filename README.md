@@ -3,7 +3,7 @@
 [![Downloads](https://img.shields.io/npm/dm/use-visitor-location.svg?style=flat-square)](https://www.npmjs.com/package/use-visitor-location)
 [![version](https://img.shields.io/npm/v/use-visitor-location.svg?style=flat-square)](https://www.npmjs.com/package/use-visitor-location)
 
-Lightweight React hook that fetches geolocation data using `ipapi.co` free API service. It sends a single request and returns structured location information about the visitor.
+React hook that fetches geolocation data using `ipapi.co` free API service. It sends a single request and returns structured location information about the visitor.
 
 ⚠️ The free version has a limited number of requests. [Visit the website](https://ipapi.co) for more info.
 

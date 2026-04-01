@@ -2,9 +2,13 @@ import { useState, useEffect } from "react";
 import type { Nullable, Location } from "./types.ts";
 import axios from "axios";
 
-const endpoint = "https://ipapi.co/json";
+const base = "https://ipapi.co/";
 
-export default function useVisitorLocation(): Nullable<Location> {
+export default function useVisitorLocation(
+  specificField: string | undefined = undefined,
+): Nullable<Location> {
+  const endpoint = specificField ? base + specificField : base + "json";
+
   const [data, setData] = useState({
     ip: null,
     network: null,
